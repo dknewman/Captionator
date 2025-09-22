@@ -40,22 +40,39 @@ The app icon features a modern, flat design that represents the core functionali
 
 ## Implementation
 
-To use these icons in your Xcode project:
+✅ **ALREADY IMPLEMENTED** - The icons have been properly installed in the Xcode project:
 
-1. Open your Xcode project
-2. Navigate to the `Assets.xcassets` folder
-3. Select the `AppIcon` asset
-4. Drag and drop the appropriate PNG files to their corresponding slots
-5. The naming convention matches the required sizes in the AppIcon asset catalog
+- All required icon sizes are in `../Captionator/Assets.xcassets/AppIcon.appiconset/`
+- The `Contents.json` file has been updated with proper filename references
+- Icons are ready to use in Xcode - no additional setup required
 
 ## Regenerating Icons
 
 If you need to modify the icon design:
 
-1. Edit the `app-icon.svg` file
+1. Edit the `app-icon.svg` file in this `design-assets/` folder
 2. Convert to PNG: `qlmanage -t -s 1024 -o . app-icon.svg`
 3. Rename: `mv app-icon.svg.png app-icon-1024x1024.png`
 4. Run: `./generate-icons.sh` to create all required sizes
+5. Copy the generated icons to `../Captionator/Assets.xcassets/AppIcon.appiconset/` with proper naming
+
+## Project Organization
+
+```
+Captionator/
+├── design-assets/                          # Design source files (this folder)
+│   ├── app-icon.svg                       # Vector source file
+│   ├── generate-icons.sh                  # Icon generation script
+│   └── APP_ICON_README.md                 # This documentation
+├── Captionator/
+│   └── Assets.xcassets/
+│       └── AppIcon.appiconset/            # ✅ Final iOS app icons
+│           ├── Contents.json              # ✅ Icon configuration
+│           ├── AppIcon-20@2x.png          # ✅ All required sizes
+│           ├── AppIcon-20@3x.png          # ✅ properly named
+│           └── ... (all other sizes)      # ✅ and organized
+└── README.md                              # Project documentation
+```
 
 ## Design Guidelines
 
